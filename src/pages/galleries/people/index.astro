@@ -1,7 +1,59 @@
 ---
+import PhotoSwipe from "../../../components/PhotoSwipe.astro";
 import Base from "../../../layouts/Base.astro";
 ---
 
 <Base title="People">
-  <p>This is the people page!! Hey</p>
+  <PhotoSwipe imageFolder="people" />
+  <section class="columns-1 md:columns-2 gap-4 mx-4 xl:mx-0">
+    <!-- Image 1 -->
+    <div class="mb-6">
+      <img
+        src="https://via.placeholder.com/600x800"
+        alt="Portrait Placeholder"
+        class="w-full break-inside-avoid"
+      />
+      <p class="mt-2 text-sm text-left">Portrait Image</p>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="mb-6">
+      <img
+        src="https://via.placeholder.com/400x300"
+        alt="Landscape Placeholder"
+        class="w-full break-inside-avoid"
+      />
+      <p class="mt-2 text-sm text-left">Landscape Image</p>
+    </div>
+
+    <!-- Image 3 -->
+    <div class="mb-6">
+      <img
+        src="https://via.placeholder.com/300x300"
+        alt="Square Placeholder"
+        class="w-full break-inside-avoid"
+      />
+      <p class="mt-2 text-sm text-left">Square Image</p>
+    </div>
+
+    <!-- Image 4 -->
+    <div class="mb-6">
+      <img
+        src="https://via.placeholder.com/800x400"
+        alt="Wide Landscape Placeholder"
+        class="w-full break-inside-avoid"
+      />
+      <p class="mt-2 text-sm text-left">Wide Landscape Image</p>
+    </div>
+
+    <!-- Image 5 -->
+    <div class="mb-6">
+      <img
+        src="https://via.placeholder.com/500x700"
+        alt="Portrait Placeholder"
+        class="w-full break-inside-avoid"
+      />
+      <p class="mt-2 text-sm text-left">Portrait Image</p>
+    </div>
+  </section>
 </Base>

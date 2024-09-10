@@ -1,6 +1,7 @@
 ---
 const { title } = Astro.props;
 import Nav from "../components/Nav.astro";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html lang="en">
@@ -10,6 +11,7 @@ import Nav from "../components/Nav.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <!-- Header: Contains introductory content -->

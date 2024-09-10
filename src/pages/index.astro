@@ -3,8 +3,8 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base title="Jack Photography">
-  <div class="mx-4 xl:mx-0">
-    <aside>
+  <div class="mx-4 xl:mx-0 flex">
+    <aside class="w-[150px] xl:w-[200px] flex-shrink-0">
       <h3 class="text-lg font-medium text-slate-400 uppercase mt-6 mb-2">
         Galleries
       </h3>
@@ -28,5 +28,19 @@ import Base from "../layouts/Base.astro";
         <li class="mb-3">2004 Democratic Convention</li>
       </ul>
     </aside>
+    <section class="w-full md:columns-2 gap-4 mt-8">
+      <!-- Larger portrait placeholder on the left -->
+      <div class="break-inside-avoid bg-gray-300 aspect-[3/4] mb-4">
+        Portrait Image
+      </div>
+
+      <!-- Two smaller horizontal placeholders on the right -->
+      <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
+        Horizontal Image 1
+      </div>
+      <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
+        Horizontal Image 2
+      </div>
+    </section>
   </div>
 </Base>
