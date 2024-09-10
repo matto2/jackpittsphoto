@@ -1,5 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
+import ladyImage from "../assets/lady.jpg";
+import flowersImage from "../assets/flowers.jpg";
+import structureImage from "../assets/structure.jpg";
 ---
 
 <Base title="Jack Photography">
@@ -30,17 +34,18 @@ import Base from "../layouts/Base.astro";
     </aside>
     <section class="w-full md:columns-2 gap-4 mt-8">
       <!-- Larger portrait placeholder on the left -->
-      <div class="break-inside-avoid bg-gray-300 aspect-[3/4] mb-4">
-        Portrait Image
-      </div>
+
+      <Image src={ladyImage} alt="old lady seated" class="w-full mb-4" />
+      <Image src={flowersImage} alt="flowers" class="w-full mb-4" />
+      <Image src={structureImage} alt="structure" class="w-full mb-4" />
 
       <!-- Two smaller horizontal placeholders on the right -->
-      <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
+      <!-- <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
         Horizontal Image 1
       </div>
       <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
         Horizontal Image 2
-      </div>
+      </div> -->
     </section>
   </div>
 </Base>
