@@ -1,16 +1,32 @@
 ---
-
+import Base from "../layouts/Base.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Jack Photography">
+  <div class="mx-4 xl:mx-0">
+    <aside>
+      <h3 class="text-lg font-medium text-slate-400 uppercase mt-6 mb-2">
+        Galleries
+      </h3>
+      <ul class="list-none">
+        <li class="mb-3">
+          <a href="/galleries/people">People</a>
+        </li>
+        <li class="mb-3">Natural World</li>
+        <li class="mb-3">Street</li>
+        <li class="mb-3">Portraits/Studio</li>
+        <li class="mb-3">Random Oddness</li>
+        <li class="mb-3">Structures</li>
+      </ul>
+      <h3 class="text-lg font-medium text-slate-400 uppercase mt-8 mb-2">
+        Projects
+      </h3>
+      <ul class="list-none">
+        <li class="mb-3">
+          <a href="/galleries/people">Holy Joe</a>
+        </li>
+        <li class="mb-3">2004 Democratic Convention</li>
+      </ul>
+    </aside>
+  </div>
+</Base>
