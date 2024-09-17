@@ -1,0 +1,78 @@
+---
+const quotes = [
+  {
+    quote: "A photograph is a secret about a secret.",
+    author: "Diane Arbus",
+  },
+  {
+    quote:
+      "If we could see the miracle of a single flower - clearly - our whole lives would change.",
+    author: "The Buddah",
+  },
+  {
+    quote: "The principle of true art is not to portray, but to evoke.",
+    author: "Jerzy Kosinski",
+  },
+];
+let currentQuoteIndex = 0;
+---
+
+<!-- Main content of the page -->
+<section>
+  <div
+    id="quotes-container"
+    class="mx-4 xl:mx-0 mt-4 mb-6"
+    data-quotes={`${JSON.stringify(quotes)}`}
+  >
+    <h3
+      id="quote-block"
+      class="text-lg md:text-2xl text-center font-medium text-red-700 tracking-xl italic transition-opacity duration-1000 opacity-100"
+    >
+      &ldquo;{quotes[0].quote}.&rdquo;
+    </h3>
+    <span
+      id="quote-author"
+      class="not-italic text-black text-base md:text-lg block text-center transition-opacity duration-1000 opacity-100"
+    >
+      &mdash;{quotes[0].author}
+    </span>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Retrieve the quotes data from the data attribute
+    const quotesContainer = document.getElementById("quotes-container");
+    const quotes = JSON.parse(quotesContainer.getAttribute("data-quotes"));
+
+    let currentIndex = 0;
+    const quoteElement = document.getElementById("quote-block");
+    const authorElement = document.getElementById("quote-author");
+
+    function fadeQuotes() {
+      // Fade out
+      quoteElement.classList.remove("opacity-100");
+      quoteElement.classList.add("opacity-0");
+      authorElement.classList.remove("opacity-100");
+      authorElement.classList.add("opacity-0");
+
+      setTimeout(() => {
+        // Update the quote and author after fade-out
+        currentIndex = (currentIndex + 1) % quotes.length;
+        quoteElement.innerHTML = `&ldquo;${quotes[currentIndex].quote}.&rdquo;`;
+        authorElement.innerHTML = `&mdash;${quotes[currentIndex].author}`;
+
+        // Fade back in
+        quoteElement.classList.remove("opacity-0");
+        quoteElement.classList.add("opacity-100");
+        authorElement.classList.remove("opacity-0");
+        authorElement.classList.add("opacity-100");
+      }, 1000); // Wait for fade-out to complete before updating content
+    }
+
+    // Set interval for cycling quotes
+    setInterval(() => {
+      fadeQuotes();
+    }, 6000); // 5 seconds display time + 1 second for fading transition
+  });
+</script>

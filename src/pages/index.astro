@@ -4,25 +4,55 @@ import { Image } from "astro:assets";
 import ladyImage from "../assets/lady.jpg";
 import flowersImage from "../assets/flowers.jpg";
 import structureImage from "../assets/structure.jpg";
+import Quote from "../components/Quote.astro";
+import QuoteComponent from "../components/QuoteComponent.astro";
 ---
 
 <Base title="Jack Photography">
+  <!-- <h4
+    class="mx-4 xl:mx-0 md:text-xl text-center font-medium text-stone-500 tracking-xl my-12"
+  >
+    Welcome to my photography portfolio. Lorem ipsum dolor sit amet. <a
+      href="/about"
+      class="underline hover:text-red-700"
+      <span
+    >
+      More about Jack</a
+    >
+  </h4> -->
+
+  <!-- <Quote
+    quote="A photograph is a secret about a secret."
+    author="Diane Arbus"
+  /> -->
+
+  <QuoteComponent />
+
   <div class="mx-4 xl:mx-0 flex">
-    <aside class="w-[150px] xl:w-[200px] flex-shrink-0">
-      <h3 class="text-lg font-medium text-slate-400 uppercase mt-6 mb-2">
+    <aside class="hidden lg:block w-[150px] xl:w-[200px] flex-shrink-0">
+      <h3
+        class="text-lg font-libre-baskerville font-medium text-stone-500 tracking-wider uppercase mt-6 mb-2"
+      >
         Galleries
       </h3>
       <ul class="list-none">
-        <li class="mb-3">
-          <a href="/galleries/people">People</a>
-        </li>
-        <li class="mb-3">Natural World</li>
-        <li class="mb-3">Street</li>
-        <li class="mb-3">Portraits/Studio</li>
-        <li class="mb-3">Random Oddness</li>
-        <li class="mb-3">Structures</li>
+        <a href="/galleries/people">
+          <li class="mb-3 hover:text-red-700">People</li></a
+        >
+        <li class="mb-3 hover:text-red-700">Street</li>
+        <li class="mb-3 hover:text-red-700">Portraits</li>
+        <li class="mb-3 hover:text-red-700">Landscapes</li>
+
+        <a href="/galleries/botanicals">
+          <li class="mb-3 hover:text-red-700">Botanicals</li></a
+        >
+        <li class="mb-3 hover:text-red-700">Surreal</li>
+        <li class="mb-3 hover:text-red-700">Holy Joe</li>
+        <li class="mb-3 hover:text-red-700">2004 Convention</li>
       </ul>
-      <h3 class="text-lg font-medium text-slate-400 uppercase mt-8 mb-2">
+      <!-- <h3
+        class="text-xl font-libre-baskerville font-medium text-red-700 tracking-wider uppercase mt-8 mb-2"
+      >
         Projects
       </h3>
       <ul class="list-none">
@@ -30,28 +60,42 @@ import structureImage from "../assets/structure.jpg";
           <a href="/galleries/people">Holy Joe</a>
         </li>
         <li class="mb-3">2004 Democratic Convention</li>
-      </ul>
+      </ul> -->
+      <!-- <div class="hover:cursor-pointer p-4 bg-blue-500">Hover over me</div> -->
     </aside>
-    <section class="w-full md:columns-2 gap-4 mt-8">
-      <!-- Larger portrait placeholder on the left -->
+    <div>
+      <section class="w-full md:columns-2 gap-4 mt-8">
+        <!-- Larger portrait placeholder on the left -->
 
-      <a href="/galleries/people">
-        <Image src={ladyImage} alt="old lady seated" class="w-full mb-4" /></a
-      >
-      <a href="/galleries/people">
-        <Image src={flowersImage} alt="flowers" class="w-full mb-4" /></a
-      >
-      <a href="/galleries/people">
-        <Image src={structureImage} alt="structure" class="w-full mb-4" /></a
-      >
+        <a href="/galleries/people">
+          <Image src={ladyImage} alt="old lady seated" class="w-full mb-4" /></a
+        >
+        <a href="/galleries/people">
+          <Image src={flowersImage} alt="flowers" class="w-full mb-4" /></a
+        >
+        <a href="/galleries/people">
+          <Image src={structureImage} alt="structure" class="w-full mb-4" /></a
+        >
 
-      <!-- Two smaller horizontal placeholders on the right -->
-      <!-- <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
+        <!-- Two smaller horizontal placeholders on the right -->
+        <!-- <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
         Horizontal Image 1
       </div>
       <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
         Horizontal Image 2
       </div> -->
-    </section>
+      </section>
+      <h4
+        class="mx-4 xl:mx-0 md:text-xl text-center font-medium text-stone-500 tracking-xl my-12"
+      >
+        Welcome to my photography portfolio. Lorem ipsum dolor sit amet. <a
+          href="/about"
+          class="underline hover:text-red-700"
+          <span
+        >
+          More about Jack</a
+        >
+      </h4>
+    </div>
   </div>
 </Base>

@@ -1,0 +1,76 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets"; // Import Astro's Image component
+import flora12 from "../../assets/botanicals/Flora12_IMG_9876.webp"; // Import images
+import img0026 from "../../assets/botanicals/IMG_0026C.webp";
+import Base from "../../layouts/Base.astro";
+import PhotoSwipeLightbox from "photoswipe/lightbox"; // Import PhotoswipeLightbox here
+import "photoswipe/style.css"; // Import the CSS here
+---
+
+<Base title="Test">
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="generator" content={Astro.generator} />
+      <title>Astro</title>
+      <ViewTransitions />
+    </head>
+    <body class="bg-white text-gray-900">
+      <div class="container mx-auto max-w-7xl px-4 py-10">
+        <h1 class="text-center text-4xl font-bold mb-8">Astro</h1>
+        <div id="my-gallery" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <a
+            href={flora12.src}
+            class="block"
+            alt="Showcase image"
+            data-pswp-width="1000"
+            data-pswp-height="1000"
+          >
+            <Image
+              src={flora12}
+              alt="Showcase image"
+              width={1000}
+              height={1000}
+              class="w-full h-auto object-cover"
+            />
+          </a>
+          <a
+            class="block max-h-screen"
+            data-pswp-width="1280"
+            data-pswp-height="1920"
+            href={img0026.src}
+          >
+            <Image
+              src={img0026}
+              alt="Cloudflare pages image"
+              width={1280}
+              height={1920}
+              class="w-full max-h-screen object-contain"
+            />
+          </a>
+        </div>
+      </div>
+    </body>
+  </html>
+
+  <script client:load>
+    let lightbox;
+
+    document.addEventListener("astro:page-load", () => {
+      lightbox = new PhotoSwipeLightbox({
+        gallery: "#my-gallery", // Ensure this ID matches
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+      });
+
+      lightbox.init();
+    });
+
+    document.addEventListener("astro:before-swap", () => {
+      lightbox.destroy();
+    });
+  </script>
+</Base>

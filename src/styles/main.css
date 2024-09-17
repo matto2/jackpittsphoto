@@ -1,0 +1,44 @@
+/* fonts.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* @font-face {
+  font-family: 'Red Rose';
+  src: url('../styles/fonts/RedRose-VariableFont_wght.ttf') format('truetype');
+} */
+
+
+body {
+    background: #FFFFFf;
+    color: #555;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', sans-serif;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: 600;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+    header {
+      width: 100%;
+    }
+
+    footer {
+        width: 100%;
+      }
+  
+      .bold-text {
+        font-weight: 700;
+        font-family: sans-serif;/* Ensuring the bold version of the font is used */
+      }     
+
+   
