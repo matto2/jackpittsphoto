@@ -1,6 +1,8 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import { Image } from "astro:assets";
+import floral from "../../../assets/botanicals/Flora12_IMG_9876.webp";
 ---
 
 <Base title="Botanicals">
@@ -15,15 +17,17 @@ import Breadcrumbs from "../../../components/Breadcrumbs.astro";
         class="contents"
         data-pswp-width="1000"
         data-pswp-height="1000"
-        href="../src/assets/botanicals/Flora12_IMG_9876.webp"
+        href={floral}
+        alt="Floral Image"
       >
-        <img
+        <Image
           width="1000"
           height="1000"
           loading="lazy"
           decoding="async"
           class="object-cover"
-          src="../src/assets/botanicals/Flora12_IMG_9876.webp"
+          src={floral}
+          alt="Floral Image"
         />
       </a>
       <p class="mt-2 mb-12 text-left">Caption here</p>
