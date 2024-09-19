@@ -13,239 +13,42 @@ import IMG_4643D from "../../../assets/botanicals/IMG_4643D.webp";
 import IMG_9981 from "../../../assets/botanicals/IMG_9981.webp";
 import IMG_9987 from "../../../assets/botanicals/IMG_9987.webp";
 import RootRumba from "../../../assets/botanicals/RootRumba.webp";
+
+const images = [
+  { src: floral, alt: "Flora12 IMG 9876" },
+  { src: IMG_0026C, alt: "IMG 0026C" },
+  { src: IMG_0057, alt: "IMG 0057" },
+  { src: IMG_0065C, alt: "IMG 0065C" },
+  { src: IMG_0090C, alt: "IMG 0090C" },
+  { src: IMG_1538A, alt: "IMG 1538A" },
+  { src: IMG_1543, alt: "IMG 1543" },
+  { src: IMG_4643D, alt: "IMG 4643D" },
+  { src: IMG_9981, alt: "IMG 9981" },
+  { src: IMG_9987, alt: "IMG 9987" },
+  { src: RootRumba, alt: "Root Rumba" },
+];
 ---
 
 <Base title="Botanicals">
   <Breadcrumbs crumb="Botanicals" />
-
-  <div
-    id="my-gallery"
-    class="mx-4 xl:mx-8 columns-1 md:columns-2 2xl:columns-3 gap-12"
-  >
-    <a
-      class="contents"
-      data-pswp-width="1000"
-      data-pswp-height="1000"
-      href={floral}
-      alt="Floral Image"
-    >
-      <Image
-        width="1000"
-        height="1000"
-        loading="lazy"
-        decoding="async"
-        class="object-cover"
-        src={floral}
-        alt="Floral Image"
-      />
-    </a>
-
-    <a
-      class="contents"
-      data-pswp-width="1280"
-      data-pswp-height="1920"
-      href={IMG_0026C}
-      alt="Portrait Image"
-    >
-      <Image
-        width="1280"
-        height="1920"
-        loading="lazy"
-        decoding="async"
-        class="object-cover"
-        src={IMG_0026C}
-        alt="Portrait Image"
-      />
-    </a>
-  </div>
-  <div>
-    <div class="break-inside-avoid">
+  <div class="pswp-gallery columns-3 gap-3 space-y-3" id="botanicalsGallery">
+    {images.map((image) => (
       <a
-        class="contents"
-        data-pswp-width="1920"
-        data-pswp-height="1242"
-        href={IMG_0057}
-        alt="Landscape Image"
+      class="block" 
+      href={image.src.src}
+      data-pswp-width={image.src.width}
+      data-pswp-height={image.src.height}
+      target="_blank"
       >
-        <Image
-          width="1920"
-          height="1242"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_0057}
-          alt="Landscape Image"
+        <img
+      class="w-full h-full block"
+          src={image.src.src}
+          alt={image.alt}
+          width={image.src.width}
+          height={image.src.height}
         />
       </a>
-      <p class="mt-2 mb-12 text-left">Landscape Image</p>
-    </div>
-
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1920"
-        data-pswp-height="1016"
-        href={IMG_0065C}
-        alt="Landscape Image"
-      >
-        <Image
-          width="1920"
-          height="1016"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_0065C}
-          alt="Landscape Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Landscape Image</p>
-    </div>
-
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1920"
-        data-pswp-height="1225"
-        href={IMG_0090C}
-        alt="Landscape Image"
-      >
-        <Image
-          width="1920"
-          height="1225"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_0090C}
-          alt="Landscape Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Landscape Image</p>
-    </div>
-
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1920"
-        data-pswp-height="1280"
-        href={IMG_1538A}
-        alt="Landscape Image"
-      >
-        <Image
-          width="1920"
-          height="1280"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_1538A}
-          alt="Landscape Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Landscape Image</p>
-    </div>
-
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1920"
-        data-pswp-height="1280"
-        href={IMG_1543}
-        alt="Landscape Image"
-      >
-        <Image
-          width="1920"
-          height="1280"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_1543}
-          alt="Landscape Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Landscape Image</p>
-    </div>
-
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1242"
-        data-pswp-height="1920"
-        href={IMG_4643D}
-        alt="Portrait Image"
-      >
-        <Image
-          width="1242"
-          height="1920"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_4643D}
-          alt="Portrait Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Portrait Image</p>
-    </div>
-
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1920"
-        data-pswp-height="1920"
-        href={IMG_9981}
-        alt="Square Image"
-      >
-        <Image
-          width="1920"
-          height="1920"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_9981}
-          alt="Square Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Square Image</p>
-    </div>
-
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1920"
-        data-pswp-height="1920"
-        href={IMG_9987}
-        alt="Square Image"
-      >
-        <Image
-          width="1920"
-          height="1920"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_9987}
-          alt="Square Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Square Image</p>
-    </div>
-
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1509"
-        data-pswp-height="1920"
-        href={RootRumba}
-        alt="Portrait Image"
-      >
-        <Image
-          width="1509"
-          height="1920"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={RootRumba}
-          alt="Portrait Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Portrait Image</p>
-    </div>
+    ))}
   </div>
 </Base>
+
