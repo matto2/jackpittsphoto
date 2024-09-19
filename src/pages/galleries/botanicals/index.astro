@@ -31,24 +31,25 @@ const images = [
 
 <Base title="Botanicals">
   <Breadcrumbs crumb="Botanicals" />
-  <div class="pswp-gallery columns-3 gap-3 space-y-3" id="botanicalsGallery">
-    {images.map((image) => (
-      <a
-      class="block" 
-      href={image.src.src}
-      data-pswp-width={image.src.width}
-      data-pswp-height={image.src.height}
-      target="_blank"
-      >
-        <img
-      class="w-full h-full block"
-          src={image.src.src}
-          alt={image.alt}
-          width={image.src.width}
-          height={image.src.height}
-        />
-      </a>
-    ))}
+  <div class="pswp-gallery columns-3 gap-6 space-y-6" id="botanicalsGallery">
+    {
+      images.map((image) => (
+        <a
+          class="block"
+          href={image.src.src}
+          data-pswp-width={image.src.width}
+          data-pswp-height={image.src.height}
+          target="_blank"
+        >
+          <img
+            class="w-full h-full block"
+            src={image.src.src}
+            alt={image.alt}
+            width={image.src.width}
+            height={image.src.height}
+          />
+        </a>
+      ))
+    }
   </div>
 </Base>
-
