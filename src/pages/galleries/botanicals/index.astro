@@ -18,49 +18,47 @@ import RootRumba from "../../../assets/botanicals/RootRumba.webp";
 <Base title="Botanicals">
   <Breadcrumbs crumb="Botanicals" />
 
-  <div id="my-gallery" class="mx-4 xl:mx-0 columns-1 md:columns-2 gap-12">
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1000"
-        data-pswp-height="1000"
-        href={floral}
+  <div
+    id="my-gallery"
+    class="mx-4 xl:mx-8 columns-1 md:columns-2 2xl:columns-3 gap-12"
+  >
+    <a
+      class="contents"
+      data-pswp-width="1000"
+      data-pswp-height="1000"
+      href={floral}
+      alt="Floral Image"
+    >
+      <Image
+        width="1000"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+        class="object-cover"
+        src={floral}
         alt="Floral Image"
-      >
-        <Image
-          width="1000"
-          height="1000"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={floral}
-          alt="Floral Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Caption here</p>
-    </div>
+      />
+    </a>
 
-    <div class="break-inside-avoid">
-      <a
-        class="contents"
-        data-pswp-width="1280"
-        data-pswp-height="1920"
-        href={IMG_0026C}
+    <a
+      class="contents"
+      data-pswp-width="1280"
+      data-pswp-height="1920"
+      href={IMG_0026C}
+      alt="Portrait Image"
+    >
+      <Image
+        width="1280"
+        height="1920"
+        loading="lazy"
+        decoding="async"
+        class="object-cover"
+        src={IMG_0026C}
         alt="Portrait Image"
-      >
-        <Image
-          width="1280"
-          height="1920"
-          loading="lazy"
-          decoding="async"
-          class="object-cover"
-          src={IMG_0026C}
-          alt="Portrait Image"
-        />
-      </a>
-      <p class="mt-2 mb-12 text-left">Portrait Image</p>
-    </div>
-
+      />
+    </a>
+  </div>
+  <div>
     <div class="break-inside-avoid">
       <a
         class="contents"

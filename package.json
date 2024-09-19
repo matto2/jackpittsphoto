@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/nunito": "^5.1.0",
     "@fontsource/libre-baskerville": "^5.1.0",
     "@fontsource/red-rose": "^5.1.0",
     "astro": "^4.15.6",

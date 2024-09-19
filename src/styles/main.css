@@ -11,12 +11,14 @@
 
 
 body {
+  font-family: 'Nunito Variable', sans-serif;
+
     background: #FFFFFf;
     color: #555;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Libre Baskerville', sans-serif;
+    font-family: 'Nunito Variable', sans-serif;
 }
 
 h1 {
@@ -41,4 +43,4 @@ h1 {
         font-family: sans-serif;/* Ensuring the bold version of the font is used */
       }     
 
-   
+  

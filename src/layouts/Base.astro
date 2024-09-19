@@ -7,6 +7,8 @@ import "photoswipe/style.css";
 import "@fontsource/red-rose";
 import "@fontsource/libre-baskerville";
 import "@fontsource/libre-baskerville/400-italic.css";
+// Supports weights 200-900
+import "@fontsource-variable/nunito";
 ---
 
 <html lang="en">
@@ -19,30 +21,32 @@ import "@fontsource/libre-baskerville/400-italic.css";
   </head>
   <body>
     <!-- Header: Contains introductory content -->
-    <header class="max-w-7xl mx-auto">
+    <header class="max-w-8xl mx-auto">
       <nav>
         <Nav />
       </nav>
     </header>
 
     <!-- Main content: Primary content of the page -->
-    <main class="max-w-7xl mx-auto">
+    <main class="max-w-8xl mx-auto">
       <slot />
     </main>
   </body>
 </html>
 
 <!-- PhotoSwipe initialization -->
-<script type="module" client:load>
-  import PhotoSwipeLightbox from "photoswipe/lightbox";
-  import * as PhotoSwipe from "photoswipe";
-  import "photoswipe/style.css";
+<script is:inline>
+  console.log("PhotoSwipeLightbox");
 
-  const lightbox = new PhotoSwipeLightbox({
-    gallery: "#my-gallery",
-    children: "a",
-    pswpModule: PhotoSwipe,
-  });
+  // import PhotoSwipeLightbox from "photoswipe/lightbox";
+  // import * as PhotoSwipe from "photoswipe";
+  // import "photoswipe/style.css";
 
-  lightbox.init();
+  // const lightbox = new PhotoSwipeLightbox({
+  //   gallery: "#my-gallery",
+  //   children: "a",
+  //   pswpModule: PhotoSwipe,
+  // });
+
+  // lightbox.init();
 </script>
