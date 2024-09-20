@@ -18,7 +18,6 @@ import "@fontsource-variable/nunito";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
-
     <title>{title}</title>
   </head>
   <body>
@@ -37,17 +36,14 @@ import "@fontsource-variable/nunito";
 </html>
 
 <!-- PhotoSwipe initialization -->
-
 <script is:inline type="module">
+  import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
 
-import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#botanicalsGallery",
+    children: "a",
+    pswpModule: () => import("https://unpkg.com/photoswipe"),
+  });
 
-const lightbox = new PhotoSwipeLightbox({
-  gallery: '#botanicalsGallery',
-  children: 'a',
-  pswpModule: () => import('https://unpkg.com/photoswipe'),
-});
-
-lightbox.init();
-  
+  lightbox.init();
 </script>
