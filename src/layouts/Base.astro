@@ -8,7 +8,8 @@ import "@fontsource/red-rose";
 import "@fontsource/libre-baskerville";
 import "@fontsource/libre-baskerville/400-italic.css";
 // Supports weights 200-900
-import "@fontsource-variable/nunito";
+import "@fontsource-variable/dm-sans";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html lang="en">
@@ -17,7 +18,9 @@ import "@fontsource-variable/nunito";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <!-- Header: Contains introductory content -->
@@ -35,18 +38,24 @@ import "@fontsource-variable/nunito";
 </html>
 
 <!-- PhotoSwipe initialization -->
-<script is:inline>
-  console.log("PhotoSwipeLightbox");
+<script is:inline type="module">
+  import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
 
-  // import PhotoSwipeLightbox from "photoswipe/lightbox";
-  // import * as PhotoSwipe from "photoswipe";
-  // import "photoswipe/style.css";
+  let lightbox;
 
-  // const lightbox = new PhotoSwipeLightbox({
-  //   gallery: "#my-gallery",
-  //   children: "a",
-  //   pswpModule: PhotoSwipe,
-  // });
+  document.addEventListener("astro:page-load", () => {
+    lightbox = new PhotoSwipeLightbox({
+      gallery: "#botanicalsGallery",
+      children: "a",
+      pswpModule: () => import("https://unpkg.com/photoswipe"),
+    });
 
-  // lightbox.init();
+    lightbox.init();
+  });
+
+  document.addEventListener("astro:before-swap", () => {
+    if (lightbox) {
+      lightbox.destroy();
+    }
+  });
 </script>
