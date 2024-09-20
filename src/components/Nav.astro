@@ -1,5 +1,5 @@
 ---
-// Astro component script block
+const currentPath = Astro.url.pathname;
 ---
 
 <nav
@@ -17,17 +17,22 @@
       <a
         href="/about"
         data-link="about"
-        class="hover:text-red-700 cursor-pointer">About</a
+        class={`hover:text-red-700 cursor-pointer ${currentPath === "/about" ? "font-bold text-red-700" : ""}`}
+        >About</a
       >
+
       <a
         href="/services"
         data-link="services"
-        class="hover:text-red-700 cursor-pointer">Services</a
+        class={`hover:text-red-700 cursor-pointer ${currentPath === "/services" ? "font-bold text-red-700" : ""}`}
+        >Services</a
       >
+
       <a
         href="/contact"
         data-link="contact"
-        class="hover:text-red-700 cursor-pointer">Contact</a
+        class={`hover:text-red-700 cursor-pointer ${currentPath === "/contact" ? "font-bold text-red-700" : ""}`}
+        >Contact</a
       >
 
       <!-- Button to open off-canvas panel -->
@@ -36,17 +41,6 @@
         class="lg:hidden inline-flex justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
       >
         Galleries
-        <!-- <svg
-          class="-mr-1 h-5 w-5 text-gray-400"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-            clip-rule="evenodd"></path>
-        </svg> -->
       </button>
     </h2>
   </div>
@@ -74,7 +68,6 @@
         href="/galleries/portraits"
         class="block px-4 py-4 text-lg text-gray-700">Portraits</a
       >
-
       <a
         href="/galleries/landscapes"
         class="block px-4 py-4 text-lg text-gray-700">Landscapes</a
