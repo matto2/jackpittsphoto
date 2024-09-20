@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
+import jack from "../assets/jack-bio-pic.png";
+---
+
+<Base title="About Jack">
+  <Image src={jack} alt="jack" class="mx-auto my-12 px-8 max-w-96" />
+  <p
+    class="mx-auto xl:max-w-7xl px-12 text-xl font-light text-stone-500 tracking-xl my-12"
+  >
+    A fair percentage of my art photography can be considered somewhat atypical.
+    It’s my father’s fault. When I was about 10, he somehow wound up with a 3-D
+    camera that produced outrageously vibrant, stunningly beautiful 35mm color
+    slides that we looked at thru a brightly lit Kodak hand-held stereo viewer.
+    This didn’t turn me into a color photographer necessarily, but I’m convinced
+    that all that unusual exposure (ahem) ultimately awakened some kind of
+    non-conformist gene. It may be what’s led toward an attraction to what is
+    not automatically obvious or readily imaginable as a potentially beautiful
+    and/or compelling art photo. Thanks, Dad.
+  </p>
+  <p
+    class="mx-auto xl:max-w-7xl px-12 text-xl font-light text-stone-500 tracking-xl"
+  >
+    All photos on the website are available as high-quality, archival prints for
+    purchase. Sizes can vary, generally from 8” x 10” up to 20” x 30”.
+  </p>
+</Base>

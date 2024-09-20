@@ -12,7 +12,7 @@
   </div>
   <div class="flex justify-center items-center">
     <h2
-      class="flex items-center space-x-4 font-libre-baskerville text-stone-500 md:text-xl text-base mt-3 xl:mt-0"
+      class="flex items-center space-x-6 font-libre-baskerville text-stone-500 md:text-xl text-base mt-3 xl:mt-0"
     >
       <a
         href="/about"
@@ -20,9 +20,9 @@
         class="hover:text-red-700 cursor-pointer">About</a
       >
       <a
-        href="/purchase"
+        href="/services"
         data-link="services"
-        class="hover:text-red-700 cursor-pointer">Purchase</a
+        class="hover:text-red-700 cursor-pointer">Services</a
       >
       <a
         href="/contact"
@@ -130,9 +130,16 @@
     // Handle click to open the panel
     menuButton.addEventListener("click", openPanel);
 
+    // Handle click to close the panel
+    closePanel.addEventListener("click", closePanelFunc);
+
     // Close panel when clicking outside of it
     offCanvas.addEventListener("click", (event) => {
       if (!offCanvasPanel.contains(event.target)) {
         closePanelFunc(event);
       }
     });
+  };
+
+  initializeOffCanvas();
+</script>
