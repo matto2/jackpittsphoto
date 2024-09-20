@@ -138,19 +138,3 @@
         closePanelFunc(event);
       }
     });
-
-    // Close panel when clicking the close button
-    closePanel.addEventListener("click", closePanelFunc);
-
-    // Prevent click propagation inside the panel (avoid unintended closing)
-    offCanvasPanel.addEventListener("click", (event) => {
-      event.stopPropagation();
-    });
-  };
-
-  // Initialize the off-canvas on initial load
-  initializeOffCanvas();
-
-  // Re-initialize the off-canvas whenever Astro client-side navigation occurs
-  document.addEventListener("astro:afterSwap", initializeOffCanvas);
-</script>
