@@ -11,23 +11,23 @@
 
 
 body {
-  font-family: 'Nunito Variable', sans-serif;
+  font-family: 'Public Sans Variable', sans-serif;
 
     background: #FFFFFf;
     color: #555;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Nunito Variable', sans-serif;
+    font-family: 'Public Sans Variable', sans-serif;
 }
 
 h1 {
     font-size: 4em;
-    font-weight: 600;
+    font-weight: 300;
 }
 
 .strong {
-    font-weight: 600;
+    font-weight: 300;
 }
 
     header {
@@ -39,7 +39,7 @@ h1 {
       }
   
       .bold-text {
-        font-weight: 700;
+        font-weight: 300;
         font-family: sans-serif;/* Ensuring the bold version of the font is used */
       }     
 
