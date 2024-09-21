@@ -8,6 +8,7 @@ import "photoswipe/style.css";
 // Supports weights 200-900
 // Supports weights 100-900
 import "@fontsource-variable/public-sans";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
@@ -20,7 +21,7 @@ import "@fontsource-variable/public-sans";
     <title>{title}</title>
     <!-- <ViewTransitions /> -->
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col">
     <!-- Header: Contains introductory content -->
     <header class="max-w-8xl mx-auto">
       <nav>
@@ -29,9 +30,13 @@ import "@fontsource-variable/public-sans";
     </header>
 
     <!-- Main content: Primary content of the page -->
-    <main class="max-w-8xl mx-auto">
+    <main class="flex-grow max-w-8xl mx-auto">
       <slot />
     </main>
+    <div class="mt-12">
+      <!-- Footer: Sticky to bottom, but never overlaps content -->
+      <Footer />
+    </div>
   </body>
 </html>
 

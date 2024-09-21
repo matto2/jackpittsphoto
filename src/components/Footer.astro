@@ -1,0 +1,40 @@
+<footer class="bg-stone-700 text-gray-300 py-8">
+  <div class="container mx-auto px-4">
+    <!-- Footer Links -->
+    <div class="text-center space-y-2">
+      <div
+        class="space-y-2 md:space-y-0 md:flex md:justify-center md:space-x-12"
+      >
+        <a href="/" class="hover:text-red-600 underline text-lg md:text-xl"
+          >Home</a
+        >
+        <a href="/about" class="hover:text-red-600 underline text-lg md:text-xl"
+          >About</a
+        >
+        <a
+          href="/services"
+          class="hover:text-red-600 underline text-lg md:text-xl">Services</a
+        >
+        <a
+          href="/contact"
+          class="hover:text-red-600 underline text-lg md:text-xl">Contact</a
+        >
+      </div>
+    </div>
+    <!-- Copyright and Attribution -->
+    <div class="text-center mt-4">
+      <p class="text-gray-400 text-sm md:text-base">
+        &copy; <span id="currentYear"></span> Jack Pitts &mdash; Made with ❤️ in
+        Seaside, CA by
+        <a href="https://mattoleary.design" class="hover:text-red-600 underline"
+          >Matt O'Leary Design</a
+        >
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Set the current year dynamically
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+</script>
