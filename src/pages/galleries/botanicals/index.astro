@@ -27,53 +27,20 @@ const images = [
   { src: IMG_9981, alt: "Botanical No. 6 - Inverness, CA  2024" },
   { src: IMG_9987, alt: "Botanical No. 7 - Inverness, CA" },
 ];
+
+const pageTitle = "Botanicals";
 ---
 
-<Base title="Botanicals">
-  <!-- <Breadcrumbs crumb="Botanicals" />
-  <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="botanicalsGallery">
-    {
-      images.map((image) => (
-        <div class="break-inside-avoid mb-6">
-          <a
-            class="block"
-            href={image.src.src}
-            data-pswp-width={image.src.width}
-            data-pswp-height={image.src.height}
-            target="_blank"
-          >
-            <img
-              class="w-full block"
-              src={image.src.src}
-              alt={image.alt}
-              width={image.src.width}
-              height={image.src.height}
-            />
-          </a>
-          <p class="text-sm text-left mt-2 text-gray-600">{image.alt}</p>
-        </div>
-      ))
-    }
-  </div> -->
+<Base title={pageTitle}>
+ 
 
-  <div class="mx-4 xl:mx-8 flex">
+  <div class="mt-12 mx-4 xl:mx-8 flex">
     <aside class="hidden lg:block w-64 flex-shrink-0">
      <SideNav />
-      <!-- <h3
-                class="text-xl font-libre-baskerville font-medium text-red-700 tracking-wider uppercase mt-8 mb-2"
-              >
-                Projects
-              </h3>
-              <ul class="list-none">
-                <li class="text-xl mb-5">
-                  <a href="/galleries/people">Holy Joe</a>
-                </li>
-                <li class="text-xl mb-5">2004 Democratic Convention</li>
-              </ul> -->
-      <!-- <div class="hover:cursor-pointer p-4 bg-blue-500">Hover over me</div> -->
+     
     </aside>
     <div>
-      <Breadcrumbs crumb="Botanicals" />
+      <Breadcrumbs crumb={pageTitle} />
       <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="botanicalsGallery">
         {
           images.map((image) => (

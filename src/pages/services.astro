@@ -1,39 +1,25 @@
 ---
 import Base from "../layouts/Base.astro";
-import { Image } from "astro:assets";
-import ladyImage from "../assets/lady.jpg";
-import flowersImage from "../assets/flowers.jpg";
-import structureImage from "../assets/structure.jpg";
 import SideNav from "../components/SideNav.astro";
+const pageTitle = "Services";
 ---
 
-<Base title="Services">
-  <div class="mx-4 xl:mx-8 flex">
-    <aside class="hidden lg:block w-64 flex-shrink-0">
+<Base title={pageTitle}>
+  <div
+    class="mt-8 mx-4 xl:mx-8 grid grid-cols-1 lg:grid-cols-[16rem,1fr] gap-8"
+  >
+    <!-- Sidebar -->
+    <aside class="hidden lg:block">
       <SideNav />
-      <!-- <h3
-            class="text-xl font-libre-baskerville font-medium text-red-700 tracking-wider uppercase mt-8 mb-2"
-          >
-            Projects
-          </h3>
-          <ul class="list-none">
-            <li class="text-xl mb-5">
-              <a href="/galleries/people">Holy Joe</a>
-            </li>
-            <li class="text-xl mb-5">2004 Democratic Convention</li>
-          </ul> -->
-      <!-- <div class="hover:cursor-pointer p-4 bg-blue-500">Hover over me</div> -->
     </aside>
-    <div>
-      <section class="w-full mt-8">
-        <div class="px-4 mx-auto">
-          <h3 class="text-3xl font-bold text-stone-500 tracking-xl">
-            Services
-          </h3>
-        </div>
-        <!-- Larger portrait placeholder on the left -->
+
+    <!-- Main content -->
+    <div class="grid">
+      <section class="mx-auto max-w-5xl w-full">
+        <h3 class="text-2xl text-stone-500 tracking-xl mb-6">{pageTitle}</h3>
+        <!-- Contact Information -->
         <p
-          class="mx-auto xl:max-w-7xl px-4 text-xl font-light text-stone-500 tracking-xl my-12"
+          class="mx-auto xl:max-w-7xl text-xl font-light text-stone-500 tracking-xl my-8"
         >
           I’m in San Francisco and available for studio portraiture (people, not
           animals) and sometimes smallish events. I am not a wedding
@@ -42,7 +28,7 @@ import SideNav from "../components/SideNav.astro";
         </p>
 
         <p
-          class="mx-auto xl:max-w-7xl px-4 text-xl font-light text-stone-500 tracking-xl my-12"
+          class="mx-auto xl:max-w-7xl text-xl font-light text-stone-500 tracking-xl"
         >
           I’m also open to meeting artists interested in potentially
           collaborating on the creation of small-scale ‘sets’ for
@@ -61,31 +47,7 @@ import SideNav from "../components/SideNav.astro";
             class="underline hover:text-red-700">Instagram</a
           >
         </p>
-        <!-- Two smaller horizontal placeholders on the right -->
-        <!-- <div class="
-            break-inside-avoid
-            bg-gray-300
-            aspect-[4
-            3]
-            mb-4"
-          >
-            Horizontal Image 1
-          </a>
-          <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">
-            Horizontal Image 2
-          </div> -->
       </section>
-      <!-- <h4
-            class="mx-4 xl:mx-8 md:text-xl text-center font-medium text-stone-500 tracking-xl my-12"
-          >
-            Welcome to my photography portfolio. Lorem ipsum dolor sit amet. <a
-              href="/about"
-              class="underline hover:text-red-700"
-              <span
-            >
-              More about Jack</a
-            >
-          </h4> -->
     </div>
   </div>
 </Base>
