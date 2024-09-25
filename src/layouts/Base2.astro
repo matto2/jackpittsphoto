@@ -1,7 +1,8 @@
 ---
 const { title } = Astro.props;
 import Nav from "../components/Nav.astro";
-import "photoswipe/style.css";
+import "photoswipe/style.css"; // Import Photoswipe styles
+
 import "../styles/main.css";
 
 // Import the font at the top of your file
@@ -10,6 +11,11 @@ import "../styles/main.css";
 // Supports weights 100-900
 import "@fontsource-variable/public-sans";
 import Footer from "../components/Footer.astro";
+
+// Import Photoswipe, Caption Plugin, and UI styles
+import PhotoSwipe from "photoswipe/dist/photoswipe.min.js";
+import PhotoSwipeUI_Default from "photoswipe/dist/photoswipe-ui-default.min.css";
+import DynamicCaptionPlugin from "photoswipe-dynamic-caption-plugin";
 ---
 
 <html lang="en">
@@ -20,28 +26,23 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
-    <!-- <ViewTransitions /> -->
   </head>
   <body class="min-h-screen flex flex-col">
-    <!-- Header: Contains introductory content -->
     <header class="max-w-8xl mx-auto">
       <nav>
         <Nav />
       </nav>
     </header>
 
-    <!-- Main content: Primary content of the page -->
     <main class="flex-grow">
       <slot />
     </main>
     <div class="mt-12">
-      <!-- Footer: Sticky to bottom, but never overlaps content -->
       <Footer />
     </div>
   </body>
 </html>
 
-<!-- PhotoSwipe initialization -->
 <script is:inline type="module">
   import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
 

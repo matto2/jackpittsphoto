@@ -16,6 +16,7 @@ import IMG_12 from "../../../assets/surreal/12_surreal.webp";
 import IMG_13 from "../../../assets/surreal/13_surreal.webp";
 import IMG_14 from "../../../assets/surreal/14_surreal.webp";
 import SideNav from "../../../components/SideNav.astro";
+import NextGallery from "../../../components/NextGallery.astro";
 
 const images = [
   { src: IMG_01, alt: "Accusation" },
@@ -75,5 +76,5 @@ const pageTitle = "Surreal";
       </div>
     </div>
   </div>
-
+<NextGallery url="/galleries/street" />
 </Base>

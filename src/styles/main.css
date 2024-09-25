@@ -43,4 +43,35 @@ h1 {
         font-family: sans-serif;/* Ensuring the bold version of the font is used */
       }     
 
-  
+/* Custom styles for PhotoSwipe background */
+.pswp--custom-bg {
+  --pswp-bg: #ffffff; /* Pure white background */
+}
+
+/* Background color for the overlay */
+.pswp__bg {
+  background-color: var(--pswp-bg); /* Apply the background color */
+}
+
+/* Icons (such as close, zoom, etc.) */
+
+
+/* Optional: Adjust hover state of icons */
+.pswp__button:hover {
+  color: #cccccc; /* Slightly darker gray on hover */
+}
+
+/* Change button icons (close, zoom, fullscreen) to light gray */
+.pswp__button {
+  color: lightgray !important; /* Change icon color */
+}
+
+/* Optional: Change text captions or other textual elements */
+.pswp__caption__center {
+  color: lightgray !important; /* Change caption text color */
+}
+
+/* Hover effect for icons (optional) */
+.pswp__button:hover {
+  color: #cccccc !important; /* Slightly darker gray on hover */
+}
