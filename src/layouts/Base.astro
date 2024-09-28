@@ -38,6 +38,22 @@ import Footer from "../components/Footer.astro";
       <!-- Footer: Sticky to bottom, but never overlaps content -->
       <Footer />
     </div>
+
+    <script is:inline>
+      document.addEventListener("scroll", function () {
+        const sideNav = document.getElementById("sideNav");
+        const offsetTop = sideNav.getBoundingClientRect().top;
+
+        // When scrolled down enough, make it fixed
+        if (window.scrollY > offsetTop) {
+          sideNav.classList.add("fixed", "top-0");
+          sideNav.classList.remove("sticky");
+        } else {
+          sideNav.classList.remove("fixed");
+          sideNav.classList.add("sticky");
+        }
+      });
+    </script>
   </body>
 </html>
 
