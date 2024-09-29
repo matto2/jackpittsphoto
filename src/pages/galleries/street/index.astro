@@ -76,13 +76,15 @@ const pageTitle = "Street";
                 data-pswp-height={image.src.height}
                 target="_blank"
               >
-                <img
-                  class="w-full block"
-                  src={image.src.src}
-                  alt={image.alt}
-                  width={image.src.width}
-                  height={image.src.height}
-                />
+                <div class="w-full h-full overflow-hidden">
+  <img
+    class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+    src={image.src.src}
+    alt={image.alt}
+    width={image.src.width}
+    height={image.src.height}
+  />
+</div>
               </a>
               <!-- Caption below the image -->
               <p class="text-sm text-left mt-2 text-gray-600">{image.alt}</p>

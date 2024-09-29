@@ -50,14 +50,32 @@ import SideNav from "../components/SideNav.astro";
         <!-- Larger portrait placeholder on the left -->
 
         <a href="/galleries/people">
-          <Image src={ladyImage} alt="old lady seated" class="w-full mb-4" /></a
-        >
+          <div class="w-full h-full overflow-hidden mb-4">
+            <Image
+              src={ladyImage}
+              alt="old lady seated"
+              class="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+            />
+          </div>
+        </a>
         <a href="/galleries/people">
-          <Image src={flowersImage} alt="flowers" class="w-full mb-4" /></a
-        >
+          <div class="w-full h-full overflow-hidden mb-4">
+            <Image
+              src={flowersImage}
+              alt="flowers"
+              class="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+            />
+          </div>
+        </a>
         <a href="/galleries/people">
-          <Image src={structureImage} alt="structure" class="w-full mb-4" /></a
-        >
+          <div class="w-full h-full overflow-hidden mb-4">
+            <Image
+              src={structureImage}
+              alt="structure"
+              class="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+            />
+          </div>
+        </a>
 
         <!-- Two smaller horizontal placeholders on the right -->
         <!-- <div class="break-inside-avoid bg-gray-300 aspect-[4/3] mb-4">

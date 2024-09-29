@@ -1,5 +1,5 @@
 ---
-import Base2 from "../../../layouts/Base2.astro";
+import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import SideNav from "../../../components/SideNav.astro";
 import IMG_01 from "../../../assets/people/01_people.webp";
@@ -43,7 +43,7 @@ const pageTitle = "People";
 
 ---
 
-<Base2 title={pageTitle}>
+<Base title={pageTitle}>
   
 
   <div class="mt-12 mx-4 xl:mx-8 flex">
@@ -64,13 +64,15 @@ const pageTitle = "People";
                 data-pswp-height={image.src.height}
                 target="_blank"
               >
-                <img
-                  class="w-full block"
-                  src={image.src.src}
-                  alt={image.alt}
-                  width={image.src.width}
-                  height={image.src.height}
-                />
+               <div class="w-full h-full overflow-hidden">
+  <img
+    class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+    src={image.src.src}
+    alt={image.alt}
+    width={image.src.width}
+    height={image.src.height}
+  />
+</div>
               </a>
               <!-- Caption below the image -->
               <p class="text-sm text-left mt-2 text-gray-600">{image.alt}</p>
@@ -81,4 +83,4 @@ const pageTitle = "People";
     </div>
   </div>
 <NextGallery url="/galleries/botanicals" />
-</Base2>
+</Base>
