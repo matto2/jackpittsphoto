@@ -9,17 +9,27 @@
   src: url('../styles/fonts/RedRose-VariableFont_wght.ttf') format('truetype');
 } */
 
+@layer base {
+  body {
+    @apply font-eau text-stone-600;
+  }
+}
 
+h1, h2, h3, h4, h5, h6 {
+  @apply font-eau text-stone-700; /* This applies to all heading elements */
+}
+
+/* 
 body {
   font-family: 'Public Sans Variable', sans-serif;
 
     background: #FFFFFf;
     color: #555;
-}
+} */
 
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
     font-family: 'Public Sans Variable', sans-serif;
-}
+} */
 
 h1 {
     font-size: 4em;
@@ -74,4 +84,18 @@ h1 {
 /* Hover effect for icons (optional) */
 .pswp__button:hover {
   color: #cccccc !important; /* Slightly darker gray on hover */
+}
+
+@font-face {
+  font-family: 'Eau';
+  src: url('/src/styles/fonts/eau_sans_book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eau';
+  src: url('/src/styles/fonts/eau_sans_bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
 }

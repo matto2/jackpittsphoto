@@ -4,7 +4,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				redrose: ['"Red Rose"', 'sans-serif'], // Add Red Rose to font family
+				eau: ['Eau', 'sans-serif'], // Add your custom font
+				// Add Red Rose to font family
 			  },
 	},
 	plugins: [],
