@@ -1,7 +1,7 @@
 ---
 title: "River Boat Adventure"
 description: "A journey through Oregon's waterways"
-image: "/src/assets/enigmas/River Boat Adventure, Oregon. jpg.webp"
+image: "../../assets/enigmas/River Boat Adventure, Oregon. jpg.webp"
 alt: "River Boat Adventure - Oregon waterways"
 date: 2024-03-20
 order: 4
