@@ -43,17 +43,13 @@ const pageTitle = "Portraits";
 ---
 
 <Base title={pageTitle}>
-  
-
   <div class="mt-12 mx-4 xl:mx-8 flex">
     <aside class="hidden lg:block w-64 flex-shrink-0">
-     
       <SideNav />
-      
     </aside>
     <div>
       <Breadcrumbs crumb={pageTitle} />
-      <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="botanicalsGallery">
+      <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="portraitsGallery">
         {
           images.map((image) => (
             <div class="break-inside-avoid mb-6">
@@ -65,14 +61,14 @@ const pageTitle = "Portraits";
                 target="_blank"
               >
                 <div class="w-full h-full overflow-hidden">
-  <img
-    class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
-    src={image.src.src}
-    alt={image.alt}
-    width={image.src.width}
-    height={image.src.height}
-  />
-</div>
+                  <img
+                    class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                    src={image.src.src}
+                    alt={image.alt}
+                    width={image.src.width}
+                    height={image.src.height}
+                  />
+                </div>
               </a>
               <!-- Caption below the image -->
               <p class="text-sm text-left mt-2 text-gray-600">{image.alt}</p>
@@ -82,5 +78,39 @@ const pageTitle = "Portraits";
       </div>
     </div>
   </div>
-<NextGallery url="/galleries/surreal" />
+  <NextGallery url="/galleries/surreal" />
 </Base>
+
+<style>
+  .pswp__img {
+    object-fit: contain !important;
+    max-height: 90vh !important;
+    width: auto !important;
+    margin: 0 auto !important;
+  }
+  
+  .pswp__zoom-wrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+</style>
+
+<!-- PhotoSwipe initialization -->
+<script is:inline type="module">
+  import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
+  import PhotoSwipe from "https://unpkg.com/photoswipe";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#portraitsGallery",
+    children: "a",
+    pswpModule: PhotoSwipe,
+    mainClass: "pswp--custom-bg",
+    bgOpacity: 1,
+    showHideAnimationType: 'fade',
+    showAnimationDuration: 300,
+    hideAnimationDuration: 300,
+  });
+
+  lightbox.init();
+</script>
