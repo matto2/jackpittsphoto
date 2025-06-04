@@ -1,6 +1,11 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import SideNav from "../../../components/SideNav.astro";
+import NextGallery from "../../../components/NextGallery.astro";
+import { getCollection } from 'astro:content';
+
+// Import images
 import IMG_01 from "../../../assets/surreal/01_surreal.webp";
 import IMG_02 from "../../../assets/surreal/02_surreal.webp";
 import IMG_03 from "../../../assets/surreal/03_surreal.webp";
@@ -15,68 +20,107 @@ import IMG_11 from "../../../assets/surreal/11_surreal.webp";
 import IMG_12 from "../../../assets/surreal/12_surreal.webp";
 import IMG_13 from "../../../assets/surreal/13_surreal.webp";
 import IMG_14 from "../../../assets/surreal/14_surreal.webp";
-import SideNav from "../../../components/SideNav.astro";
-import NextGallery from "../../../components/NextGallery.astro";
 
-const images = [
-  { src: IMG_01, alt: "Accusation" },
-  { src: IMG_02, alt: "Decay" },
-  { src: IMG_03, alt: "Grape" },
-  { src: IMG_04, alt: "Stripes" },
-  { src: IMG_05, alt: "Stars" },
-  { src: IMG_06, alt: "Howdy's Bright Smile Welcomes All" },
-  { src: IMG_07, alt: "Barbie's Heights" },
-  { src: IMG_08, alt: "Early Morning Joy Ride" },
-  { src: IMG_09, alt: "On Top of the Former World" },
-  { src: IMG_10, alt: "Descent" },
-  { src: IMG_11, alt: "Drinker" },
-  { src: IMG_12, alt: "Finally" },
-  { src: IMG_13, alt: "Cheater" },
-  { src: IMG_14, alt: "Blowout" },
-];
 const pageTitle = "Surreal";
+const entries = await getCollection('surreal');
+const sortedEntries = entries.sort((a, b) => a.data.order - b.data.order);
 
+// Map content entries to their corresponding imported images
+const imageMap = {
+  "01_surreal.webp": IMG_01,
+  "02_surreal.webp": IMG_02,
+  "03_surreal.webp": IMG_03,
+  "04_surreal.webp": IMG_04,
+  "05_surreal.webp": IMG_05,
+  "06_surreal.webp": IMG_06,
+  "07_surreal.webp": IMG_07,
+  "08_surreal.webp": IMG_08,
+  "09_surreal.webp": IMG_09,
+  "10_surreal.webp": IMG_10,
+  "11_surreal.webp": IMG_11,
+  "12_surreal.webp": IMG_12,
+  "13_surreal.webp": IMG_13,
+  "14_surreal.webp": IMG_14,
+};
 ---
 
 <Base title={pageTitle}>
-  
-
   <div class="mt-12 mx-4 xl:mx-8 flex">
     <aside class="hidden lg:block w-64 flex-shrink-0">
-    
       <SideNav />
-      
     </aside>
     <div>
       <Breadcrumbs crumb={pageTitle} />
-      <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="botanicalsGallery">
+      <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="surrealGallery">
         {
-          images.map((image) => (
-            <div class="break-inside-avoid mb-6">
-              <a
-                class="block"
-                href={image.src.src}
-                data-pswp-width={image.src.width}
-                data-pswp-height={image.src.height}
-                target="_blank"
-              >
-                 <div class="w-full h-full overflow-hidden">
-  <img
-    class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
-    src={image.src.src}
-    alt={image.alt}
-    width={image.src.width}
-    height={image.src.height}
-  />
-</div>
-              </a>
-              <!-- Caption below the image -->
-              <p class="text-sm text-left mt-2 text-gray-600">{image.alt}</p>
-            </div>
-          ))
+          sortedEntries.map((entry) => {
+            const imageName = entry.data.image.split('/').pop();
+            const image = imageMap[imageName];
+            if (!image) {
+              console.error(`Image not found for entry: ${entry.data.title}, image: ${imageName}`);
+              return null;
+            }
+            return (
+              <div class="break-inside-avoid mb-6">
+                <a
+                  class="block"
+                  href={image.src}
+                  data-pswp-width={entry.data.width}
+                  data-pswp-height={entry.data.height}
+                  target="_blank"
+                >
+                  <div class="w-full h-full overflow-hidden">
+                    <img
+                      class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                      src={image.src}
+                      alt={entry.data.alt}
+                      width={entry.data.width}
+                      height={entry.data.height}
+                    />
+                  </div>
+                </a>
+                <!-- Caption below the image -->
+                <p class="text-sm text-left mt-2 text-gray-600">{entry.data.alt}</p>
+              </div>
+            );
+          })
         }
       </div>
     </div>
   </div>
-<NextGallery url="/galleries/street" />
+  <NextGallery url="/galleries/street" />
 </Base>
+
+<style>
+  .pswp__img {
+    object-fit: contain !important;
+    max-height: 90vh !important;
+    width: auto !important;
+    margin: 0 auto !important;
+  }
+  
+  .pswp__zoom-wrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+</style>
+
+<!-- PhotoSwipe initialization -->
+<script is:inline type="module">
+  import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
+  import PhotoSwipe from "https://unpkg.com/photoswipe";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#surrealGallery",
+    children: "a",
+    pswpModule: PhotoSwipe,
+    mainClass: "pswp--custom-bg",
+    bgOpacity: 1,
+    showHideAnimationType: 'fade',
+    showAnimationDuration: 300,
+    hideAnimationDuration: 300,
+  });
+
+  lightbox.init();
+</script>

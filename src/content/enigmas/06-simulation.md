@@ -1,8 +1,8 @@
 ---
 title: "Simulation of Reverence"
-description: "A contemplative study of spiritual spaces"
+description: "A digital exploration of spiritual spaces"
 image: "../../assets/enigmas/Simulation of Reverence copy.webp"
-alt: "Simulation of Reverence - Spiritual contemplation"
+alt: "Simulation of Reverence - Digital spiritual exploration"
 date: 2024-03-20
 order: 6
 width: 1560

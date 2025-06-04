@@ -1,75 +1,88 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
-import floral from "../../../assets/botanicals/Flora12_IMG_9876.webp";
-import IMG_0026C from "../../../assets/botanicals/IMG_0026C.webp";
-import IMG_0057 from "../../../assets/botanicals/IMG_0057.webp";
-import IMG_0065C from "../../../assets/botanicals/IMG_0065C.webp";
-import IMG_0090C from "../../../assets/botanicals/IMG_0090C.webp";
-import IMG_1538A from "../../../assets/botanicals/IMG_1538A.webp";
-import IMG_1543 from "../../../assets/botanicals/IMG_1543.webp";
-import IMG_4643D from "../../../assets/botanicals/IMG_4643D.webp";
-import IMG_9981 from "../../../assets/botanicals/IMG_9981.webp";
-import IMG_9987 from "../../../assets/botanicals/IMG_9987.webp";
-import RootRumba from "../../../assets/botanicals/RootRumba.webp";
 import SideNav from "../../../components/SideNav.astro";
 import NextGallery from "../../../components/NextGallery.astro";
+import { getCollection } from 'astro:content';
 
-const images = [
-  { src: IMG_1543, alt: "Tree No. 1, Pierce Point Ranch, Pt. Reyes, CA 2020" },
-  { src: IMG_1538A, alt: "Tree No. 2, Pierce Point Ranch, Pt. Reyes, CA 2020" },
-  { src: IMG_4643D, alt: "Jaunty - Rescued From Compost (Studio Arrangement)" },
-  { src: RootRumba, alt: "Root Rumba" },
-  { src: IMG_0026C, alt: "Botanical No. 1 - Inverness, CA,  2024" },
-  { src: IMG_0057, alt: "Botanical No. 2 - Inverness, CA,  2024" },
-  { src: IMG_0065C, alt: "Botanical No. 3 - Inverness, CA  2024" },
-  { src: IMG_0090C, alt: "Botanical No. 4 - Inverness, CA  2024" },
-  { src: floral, alt: "Botanical No. 5 - Inverness, CA  2024" },
-  { src: IMG_9981, alt: "Botanical No. 6 - Inverness, CA  2024" },
-  { src: IMG_9987, alt: "Botanical No. 7 - Inverness, CA" },
-];
+// Import images
+import IMG_9987 from "../../../assets/botanicals/IMG_9987.webp";
+import IMG_4643D from "../../../assets/botanicals/IMG_4643D.webp";
+import IMG_0065C from "../../../assets/botanicals/IMG_0065C.webp";
+import IMG_0026C from "../../../assets/botanicals/IMG_0026C.webp";
+import IMG_1543 from "../../../assets/botanicals/IMG_1543.webp";
+import IMG_0057 from "../../../assets/botanicals/IMG_0057.webp";
+import IMG_9981 from "../../../assets/botanicals/IMG_9981.webp";
+import IMG_1538A from "../../../assets/botanicals/IMG_1538A.webp";
+import IMG_0090C from "../../../assets/botanicals/IMG_0090C.webp";
+import floral from "../../../assets/botanicals/Flora12_IMG_9876.webp";
+import RootRumba from "../../../assets/botanicals/RootRumba.webp";
+import Pescadero from "../../../assets/botanicals/Pescadero.webp";
+import PescaderoDecline from "../../../assets/botanicals/Pescadero Decline.webp";
+import TheseDaysTrees from "../../../assets/botanicals/These Days Trees are Wise to be Wary.webp";
 
 const pageTitle = "Botanicals";
+const entries = await getCollection('botanicals');
+const sortedEntries = entries.sort((a, b) => a.data.order - b.data.order);
+
+// Map content entries to their corresponding imported images
+const imageMap = {
+  "IMG_9987.webp": IMG_9987,
+  "IMG_4643D.webp": IMG_4643D,
+  "IMG_0065C.webp": IMG_0065C,
+  "IMG_0026C.webp": IMG_0026C,
+  "IMG_1543.webp": IMG_1543,
+  "IMG_0057.webp": IMG_0057,
+  "IMG_9981.webp": IMG_9981,
+  "IMG_1538A.webp": IMG_1538A,
+  "IMG_0090C.webp": IMG_0090C,
+  "Flora12_IMG_9876.webp": floral,
+  "RootRumba.webp": RootRumba,
+  "Pescadero.webp": Pescadero,
+  "Pescadero Decline.webp": PescaderoDecline,
+  "These Days Trees are Wise to be Wary.webp": TheseDaysTrees,
+};
 ---
 
 <Base title={pageTitle}>
- 
-
   <div class="mt-12 mx-4 xl:mx-8 flex">
     <aside class="hidden lg:block w-64 flex-shrink-0">
-     <SideNav />
-     
+      <SideNav />
     </aside>
     <div>
       <Breadcrumbs crumb={pageTitle} />
       <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="botanicalsGallery">
         {
-          images.map((image) => (
-            <div class="break-inside-avoid mb-6">
-              <a
-                class="block"
-                href={image.src.src}
-                data-pswp-width={image.src.width}
-                data-pswp-height={image.src.height}
-                target="_blank"
-              >
-                 <div class="w-full h-full overflow-hidden">
-  <img
-    class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
-    src={image.src.src}
-    alt={image.alt}
-    width={image.src.width}
-    height={image.src.height}
-  />
-</div>
-              </a>
-              <!-- Caption below the image -->
-              <p class="text-sm text-left mt-2 text-gray-600">{image.alt}</p>
-            </div>
-          ))
+          sortedEntries.map((entry) => {
+            const imageName = entry.data.image.split('/').pop();
+            const image = imageMap[imageName];
+            return (
+              <div class="break-inside-avoid mb-6">
+                <a
+                  class="block"
+                  href={image.src}
+                  data-pswp-width={entry.data.width}
+                  data-pswp-height={entry.data.height}
+                  target="_blank"
+                >
+                  <div class="w-full h-full overflow-hidden">
+                    <img
+                      class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                      src={image.src}
+                      alt={entry.data.alt}
+                      width={entry.data.width}
+                      height={entry.data.height}
+                    />
+                  </div>
+                </a>
+                <!-- Caption below the image -->
+                <p class="text-sm text-left mt-2 text-gray-600">{entry.data.alt}</p>
+              </div>
+            );
+          })
         }
       </div>
     </div>
   </div>
-<NextGallery url="/galleries/landscapes" />
+  <NextGallery url="/galleries/landscapes" />
 </Base>

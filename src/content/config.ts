@@ -16,4 +16,12 @@ const galleryCollection = defineCollection({
 
 export const collections = {
   enigmas: galleryCollection,
+  portraits: galleryCollection,
+  people: galleryCollection,
+  "holy-joe": galleryCollection,
+  landscapes: galleryCollection,
+  botanicals: galleryCollection,
+  street: galleryCollection,
+  surreal: galleryCollection,
+  "2004-dnc": galleryCollection,
 };

@@ -2,6 +2,10 @@
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import SideNav from "../../../components/SideNav.astro";
+import NextGallery from "../../../components/NextGallery.astro";
+import { getCollection } from 'astro:content';
+
+// Import images
 import IMG_01 from "../../../assets/portraits/01_portraits.webp";
 import IMG_02 from "../../../assets/portraits/02_portraits.webp";
 import IMG_03 from "../../../assets/portraits/03_portraits.webp";
@@ -18,28 +22,55 @@ import IMG_13 from "../../../assets/portraits/13_portraits.webp";
 import IMG_14 from "../../../assets/portraits/14_portraits.webp";
 import IMG_15 from "../../../assets/portraits/15_portraits.webp";
 import IMG_16 from "../../../assets/portraits/16_portraits.webp";
-import NextGallery from "../../../components/NextGallery.astro";
+import TaiInStudio from "../../../assets/portraits/Tai in Studio, 2024.webp";
+import ScooterDancer from "../../../assets/portraits/Scooter, Subway Dancer.webp";
+
+const pageTitle = "Portraits";
+const entries = await getCollection('portraits');
+const sortedEntries = entries.sort((a, b) => a.data.order - b.data.order);
+
+// Map content entries to their corresponding imported images
+const imageMap = {
+  "01_portraits.webp": IMG_01,
+  "02_portraits.webp": IMG_02,
+  "03_portraits.webp": IMG_03,
+  "04_portraits.webp": IMG_04,
+  "05_portraits.webp": IMG_05,
+  "06_portraits.webp": IMG_06,
+  "07_portraits.webp": IMG_07,
+  "08_portraits.webp": IMG_08,
+  "09_portraits.webp": IMG_09,
+  "10_portraits.webp": IMG_10,
+  "11_portraits.webp": IMG_11,
+  "12_portraits.webp": IMG_12,
+  "13_portraits.webp": IMG_13,
+  "14_portraits.webp": IMG_14,
+  "15_portraits.webp": IMG_15,
+  "16_portraits.webp": IMG_16,
+  "Tai in Studio, 2024.webp": TaiInStudio,
+  "Scooter, Subway Dancer.webp": ScooterDancer,
+};
 
 const images = [
-  { src: IMG_01, alt: "Alicia, #1" },
-  { src: IMG_02, alt: "Brenda" },
-  { src: IMG_03, alt: "Jess" },
-  { src: IMG_04, alt: "Peter #1" },
-  { src: IMG_05, alt: "Tai" },
-  { src: IMG_06, alt: "Charles" },
-  { src: IMG_07, alt: "Alicia #2" },
-  { src: IMG_08, alt: "Vicky" },
-  { src: IMG_09, alt: "Olivia" },
-  { src: IMG_10, alt: "Olivia & Danika" },
-  { src: IMG_11, alt: "Kamari" },
-  { src: IMG_12, alt: "Peter #2" },
-  { src: IMG_13, alt: "Tai, High Key" },
-  { src: IMG_14, alt: "Vince" },
-  { src: IMG_15, alt: "Zack" },
-  { src: IMG_16, alt: "Self Portrait" },
+  { src: IMG_10, alt: "Portrait No. 1 - 2024", width: 1700, height: 1288 },
+  { src: IMG_05, alt: "Portrait No. 2 - 2024", width: 3648, height: 5472 },
+  { src: IMG_02, alt: "Portrait No. 3 - 2024", width: 1920, height: 1920 },
+  { src: IMG_16, alt: "Portrait No. 4 - 2024", width: 1312, height: 1800 },
+  { src: IMG_03, alt: "Portrait No. 5 - 2024", width: 1280, height: 1920 },
+  { src: IMG_04, alt: "Portrait No. 6 - 2024", width: 1200, height: 1800 },
+  { src: IMG_11, alt: "Portrait No. 7 - 2024", width: 1800, height: 1440 },
+  { src: IMG_06, alt: "Portrait No. 8 - 2024", width: 3840, height: 3104 },
+  { src: IMG_13, alt: "Portrait No. 9 - 2024", width: 1280, height: 1920 },
+  { src: TaiInStudio, alt: "Tai in Studio, 2024", width: 1333, height: 2000 },
+  { src: IMG_14, alt: "Portrait No. 10 - 2024", width: 1500, height: 1500 },
+  { src: IMG_01, alt: "Portrait No. 11 - 2024", width: 1200, height: 1800 },
+  { src: IMG_09, alt: "Portrait No. 12 - 2024", width: 1280, height: 1920 },
+  { src: IMG_08, alt: "Portrait No. 13 - 2024", width: 1500, height: 1500 },
+  { src: IMG_15, alt: "Portrait No. 14 - 2024", width: 1280, height: 1920 },
+  { src: IMG_12, alt: "Portrait No. 15 - 2024", width: 1280, height: 1920 },
+  { src: IMG_07, alt: "Portrait No. 16 - 2024", width: 1600, height: 1600 },
+  { src: ScooterDancer, alt: "Scooter, Subway Dancer - 2024", width: 820, height: 820 },
 ];
-const pageTitle = "Portraits";
-
 ---
 
 <Base title={pageTitle}>
@@ -51,29 +82,33 @@ const pageTitle = "Portraits";
       <Breadcrumbs crumb={pageTitle} />
       <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="portraitsGallery">
         {
-          images.map((image) => (
-            <div class="break-inside-avoid mb-6">
-              <a
-                class="block"
-                href={image.src.src}
-                data-pswp-width={image.src.width}
-                data-pswp-height={image.src.height}
-                target="_blank"
-              >
-                <div class="w-full h-full overflow-hidden">
-                  <img
-                    class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
-                    src={image.src.src}
-                    alt={image.alt}
-                    width={image.src.width}
-                    height={image.src.height}
-                  />
-                </div>
-              </a>
-              <!-- Caption below the image -->
-              <p class="text-sm text-left mt-2 text-gray-600">{image.alt}</p>
-            </div>
-          ))
+          sortedEntries.map((entry) => {
+            const imageName = entry.data.image.split('/').pop();
+            const image = imageMap[imageName];
+            return (
+              <div class="break-inside-avoid mb-6">
+                <a
+                  class="block"
+                  href={image.src}
+                  data-pswp-width={entry.data.width}
+                  data-pswp-height={entry.data.height}
+                  target="_blank"
+                >
+                  <div class="w-full h-full overflow-hidden">
+                    <img
+                      class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                      src={image.src}
+                      alt={entry.data.alt}
+                      width={entry.data.width}
+                      height={entry.data.height}
+                    />
+                  </div>
+                </a>
+                <!-- Caption below the image -->
+                <p class="text-sm text-left mt-2 text-gray-600">{entry.data.alt}</p>
+              </div>
+            );
+          })
         }
       </div>
     </div>

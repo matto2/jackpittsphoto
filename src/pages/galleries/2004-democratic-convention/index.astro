@@ -2,6 +2,10 @@
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import SideNav from "../../../components/SideNav.astro";
+import NextGallery from "../../../components/NextGallery.astro";
+import { getCollection } from 'astro:content';
+
+// Import images
 import IMG_01 from "../../../assets/2004-dnc/01_2004-dnc.webp";
 import IMG_02 from "../../../assets/2004-dnc/02_2004-dnc.webp";
 import IMG_03 from "../../../assets/2004-dnc/03_2004-dnc.webp";
@@ -18,85 +22,120 @@ import IMG_13 from "../../../assets/2004-dnc/13_2004-dnc.webp";
 import IMG_14 from "../../../assets/2004-dnc/14_2004-dnc.webp";
 import IMG_15 from "../../../assets/2004-dnc/15_2004-dnc.webp";
 import IMG_16 from "../../../assets/2004-dnc/16_2004-dnc.webp";
-import NextGallery from "../../../components/NextGallery.astro";
 
-const images = [
-  { src: IMG_01, alt: "Candidate John Kerry" },
-  { src: IMG_02, alt: "Bill Clinton with Huma Abedin and Patti LaBelle" },
-  { src: IMG_03, alt: "Al and Tipper Gore" },
-  { src: IMG_04, alt: "Jesse Jackson" },
-  { src: IMG_05, alt: "The Press Pressing" },
-  { src: IMG_06, alt: "Nancy Pelosi" },
-  { src: IMG_07, alt: "Sikh Delegate" },
-  { src: IMG_08, alt: "T.V. Newsman Dan Rather" },
-  { src: IMG_09, alt: "Biden Family" },
-  { src: IMG_10, alt: "Peace Now" },
-  { src: IMG_11, alt: "Fuck the War" },
-  { src: IMG_12, alt: "Arrest Bush" },
-  { src: IMG_13, alt: "Cop's Buddy (016)" },
-  { src: IMG_14, alt: "Michael Dukakis" },
-  { src: IMG_15, alt: "Cop's Worry" },
-  { src: IMG_16, alt: "Lady Liberty" },
-];
 const pageTitle = "2004 Democratic Convention";
+const entries = await getCollection('2004-dnc');
+const sortedEntries = entries.sort((a, b) => a.data.order - b.data.order);
 
+// Map content entries to their corresponding imported images
+const imageMap = {
+  "01_2004-dnc.webp": IMG_01,
+  "02_2004-dnc.webp": IMG_02,
+  "03_2004-dnc.webp": IMG_03,
+  "04_2004-dnc.webp": IMG_04,
+  "05_2004-dnc.webp": IMG_05,
+  "06_2004-dnc.webp": IMG_06,
+  "07_2004-dnc.webp": IMG_07,
+  "08_2004-dnc.webp": IMG_08,
+  "09_2004-dnc.webp": IMG_09,
+  "10_2004-dnc.webp": IMG_10,
+  "11_2004-dnc.webp": IMG_11,
+  "12_2004-dnc.webp": IMG_12,
+  "13_2004-dnc.webp": IMG_13,
+  "14_2004-dnc.webp": IMG_14,
+  "15_2004-dnc.webp": IMG_15,
+  "16_2004-dnc.webp": IMG_16,
+};
 ---
 
 <Base title={pageTitle}>
-  
-
   <div class="mt-12 mx-4 xl:mx-8 flex">
     <aside class="hidden lg:block w-64 flex-shrink-0">
-     <SideNav />
-      
+      <SideNav />
     </aside>
     <div>
       <Breadcrumbs crumb={pageTitle} />
       <div>
-      <p
-          class="text-xl font-light text-stone-500 tracking-xl my-8 mx-4 xl:mx-8"
-        >
-        The convention was held in late July at the Fleet Center in Boston. I was interested in getting close-up portraits of anyone interesting, especially the famous...and the infamous. The Bill Clinton image was luck. I was hanging out in an area where a lot of ‘players’ passed through on their way to private seating or just to hang out and do the meet & greet thing. On day two during a late afternoon lull, an electric buzz got going from the far end of the hall. It took a few minutes before those of us at the other end realized it was the former president. This was 6 years after the Monica Lewinsky story broke and he was projecting quite the rock-star aura. As he came my way, the crowds were pressing in, calling out hellos, reaching for a handshake, etc. I managed to get a clear space in front of him just before he took a turn down an off-limits hallway. Huma Abedin, a high-level staffer for both Bill and later Hilary (years later to famously suffer indignities not of her making) is the lead. Closely behind, oddly enough, is the famed singer Patti LaBelle. Beautiful young women up close, front and rear…Sooo Bill Clinton in those days. The expression on the former President’s face seems to say it all.
-      </p>
-      <p
-      class="text-xl font-light text-stone-500 tracking-xl my-8 mx-4 xl:mx-8"
-    >
-    I’m also fond of the ‘Lady Liberty’ image, mainly because she was also captured by none other than Richard Avedon. Her name is Caitlin Cianfleone. She was a Dennis Kucinich delegate. I was unaware of Avedon’s presence at the convention (Might his shooting set-up been out in a hallway or an open room where I could have seen him at work...???) To make it worse, I was not aware of his “Democracy 2004” portfolio for several years. It included a classic American West-style close-up portrait of Caitlin, the Convention’s Lady Liberty. His image is amazing of course...vs. my relatively boring shot from a distance. I’m not sure why I didn’t approach her for a close-up. 
-  </p>
-  <p
-  class="text-xl font-light text-stone-500 tracking-xl my-8 mx-4 xl:mx-8"
->
-I got a chance to chat with former Presidential Candidate Michael Dukakis during a press break. He was very unguarded and friendly and emanated an aura of "professorial" wisdom. I gave his image the blue tint as a comment on the old school 'newsy' vibe he seemed to project. 
-</p>
-</div>
-      <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="botanicalsGallery">
+        <p class="text-xl font-light text-stone-500 tracking-xl my-8 mx-4 xl:mx-8">
+          The convention was held in late July at the Fleet Center in Boston. I was interested in getting close-up portraits of anyone interesting, especially the famous...and the infamous. The Bill Clinton image was luck. I was hanging out in an area where a lot of 'players' passed through on their way to private seating or just to hang out and do the meet & greet thing. On day two during a late afternoon lull, an electric buzz got going from the far end of the hall. It took a few minutes before those of us at the other end realized it was the former president. This was 6 years after the Monica Lewinsky story broke and he was projecting quite the rock-star aura. As he came my way, the crowds were pressing in, calling out hellos, reaching for a handshake, etc. I managed to get a clear space in front of him just before he took a turn down an off-limits hallway. Huma Abedin, a high-level staffer for both Bill and later Hilary (years later to famously suffer indignities not of her making) is the lead. Closely behind, oddly enough, is the famed singer Patti LaBelle. Beautiful young women up close, front and rear…Sooo Bill Clinton in those days. The expression on the former President's face seems to say it all.
+        </p>
+        <p class="text-xl font-light text-stone-500 tracking-xl my-8 mx-4 xl:mx-8">
+          I'm also fond of the 'Lady Liberty' image, mainly because she was also captured by none other than Richard Avedon. Her name is Caitlin Cianfleone. She was a Dennis Kucinich delegate. I was unaware of Avedon's presence at the convention (Might his shooting set-up been out in a hallway or an open room where I could have seen him at work...???) To make it worse, I was not aware of his "Democracy 2004" portfolio for several years. It included a classic American West-style close-up portrait of Caitlin, the Convention's Lady Liberty. His image is amazing of course...vs. my relatively boring shot from a distance. I'm not sure why I didn't approach her for a close-up. 
+        </p>
+        <p class="text-xl font-light text-stone-500 tracking-xl my-8 mx-4 xl:mx-8">
+          I got a chance to chat with former Presidential Candidate Michael Dukakis during a press break. He was very unguarded and friendly and emanated an aura of "professorial" wisdom. I gave his image the blue tint as a comment on the old school 'newsy' vibe he seemed to project. 
+        </p>
+      </div>
+      <div class="pswp-gallery columns-1 md:columns-2 2xl:columns-3 gap-6 space-y-6 mx-4 xl:mx-8" id="dncGallery">
         {
-          images.map((image) => (
-            <div class="break-inside-avoid mb-6">
-              <a
-                class="block"
-                href={image.src.src}
-                data-pswp-width={image.src.width}
-                data-pswp-height={image.src.height}
-                target="_blank"
-              >
-                 <div class="w-full h-full overflow-hidden">
-  <img
-    class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
-    src={image.src.src}
-    alt={image.alt}
-    width={image.src.width}
-    height={image.src.height}
-  />
-</div>
-              </a>
-              <!-- Caption below the image -->
-              <p class="text-sm text-left mt-2 text-gray-600">{image.alt}</p>
-            </div>
-          ))
+          sortedEntries.map((entry) => {
+            const imageName = entry.data.image.split('/').pop();
+            const image = imageMap[imageName];
+            if (!image) {
+              console.error(`Image not found for entry: ${entry.data.title}, image: ${imageName}`);
+              return null;
+            }
+            return (
+              <div class="break-inside-avoid mb-6">
+                <a
+                  class="block"
+                  href={image.src}
+                  data-pswp-width={entry.data.width}
+                  data-pswp-height={entry.data.height}
+                  target="_blank"
+                >
+                  <div class="w-full h-full overflow-hidden">
+                    <img
+                      class="block w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                      src={image.src}
+                      alt={entry.data.alt}
+                      width={entry.data.width}
+                      height={entry.data.height}
+                    />
+                  </div>
+                </a>
+                <!-- Caption below the image -->
+                <p class="text-sm text-left mt-2 text-gray-600">{entry.data.alt}</p>
+              </div>
+            );
+          })
         }
       </div>
     </div>
   </div>
-<NextGallery url="/galleries/holy-joe" />
+  <NextGallery url="/galleries/holy-joe" />
 </Base>
+
+<style>
+  .pswp__img {
+    object-fit: contain !important;
+    max-height: 90vh !important;
+    width: auto !important;
+    margin: 0 auto !important;
+  }
+  
+  .pswp__zoom-wrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+</style>
+
+<!-- PhotoSwipe initialization -->
+<script is:inline type="module">
+  import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
+  import PhotoSwipe from "https://unpkg.com/photoswipe";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#dncGallery",
+    children: "a",
+    pswpModule: PhotoSwipe,
+    mainClass: "pswp--custom-bg",
+    bgOpacity: 1,
+    showHideAnimationType: 'fade',
+    showAnimationDuration: 300,
+    hideAnimationDuration: 300,
+  });
+
+  lightbox.init();
+</script>

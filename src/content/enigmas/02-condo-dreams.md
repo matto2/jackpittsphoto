@@ -1,8 +1,8 @@
 ---
 title: "Condo Dreams"
-description: "Urban aspirations captured in architectural form"
+description: "A surreal exploration of urban living"
 image: "../../assets/enigmas/Condo Dreams.webp"
-alt: "Condo Dreams - Urban architectural study"
+alt: "Condo Dreams - A surreal exploration of urban living"
 date: 2024-03-20
 order: 2
 width: 1590
