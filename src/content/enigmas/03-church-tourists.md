@@ -1,10 +1,9 @@
 ---
 title: "Church Tourists, Prague"
-description: "A moment of spiritual tourism captured"
 image: "../../assets/enigmas/Church Tourists, Prague.webp"
-alt: "Church Tourists, Prague - A moment of spiritual tourism"
+alt: "Church Tourists, Prague - A moment of reflection"
 date: 2024-03-20
 order: 3
-width: 2000
-height: 1333
+width: 1920
+height: 1280
 ---

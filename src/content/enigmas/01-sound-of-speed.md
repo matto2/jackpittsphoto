@@ -1,6 +1,6 @@
 ---
 title: "The Sound of Speed"
-description: "A dynamic exploration of motion and perception"
+description: "Future 2025 selection"
 image: "../../assets/enigmas/The Sound of Speed.webp"
 alt: "The Sound of Speed - A study in motion and perception"
 date: 2024-03-20
