@@ -1,6 +1,6 @@
 ---
 title: "Olivia"
-description: "Portrait of Olivia"
+description: "Olivia"
 image: "../../assets/portraits/09_portraits.webp"
 alt: "Olivia"
 date: 2024-03-20

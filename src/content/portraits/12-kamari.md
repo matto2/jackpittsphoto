@@ -1,6 +1,6 @@
 ---
 title: "Kamari"
-description: "Portrait of Kamari"
+description: "Kamari"
 image: "../../assets/portraits/11_portraits.webp"
 alt: "Kamari"
 date: 2024-03-20

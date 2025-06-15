@@ -1,6 +1,6 @@
 ---
 title: "Zack"
-description: "Portrait of Zack"
+description: "Zack"
 image: "../../assets/portraits/15_portraits.webp"
 alt: "Zack"
 date: 2024-03-20
